@@ -478,7 +478,7 @@ img { max-width: 100%; display: block; }
 .founder-visual {
   position: relative;
   aspect-ratio: 4/5;
-  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-deep) 100%);
+  background: linear-gradient(160deg, var(--cream-light) 0%, var(--cream) 55%, var(--cream-deep) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -490,23 +490,31 @@ img { max-width: 100%; display: block; }
   content: '';
   position: absolute;
   inset: 16px;
-  border: 1px solid rgba(244, 236, 222, 0.3);
+  border: 1px solid rgba(168, 128, 74, 0.35);
+  pointer-events: none;
+  z-index: 3;
 }
 .founder-visual::after {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 50%;
-  background: radial-gradient(ellipse at center top, rgba(168, 128, 74, 0.12) 0%, transparent 70%);
+  height: 60%;
+  background: radial-gradient(ellipse at center top, rgba(168, 128, 74, 0.18) 0%, transparent 70%);
+  pointer-events: none;
 }
-.founder-mark {
-  font-family: 'Fraunces', serif;
-  font-weight: 300;
-  font-style: italic;
-  font-size: clamp(80px, 10vw, 140px);
-  color: var(--cream-light);
-  letter-spacing: -0.04em;
+.founder-logo {
+  width: 78%;
+  max-width: 360px;
+  height: auto;
+  display: block;
+  position: relative;
   z-index: 2;
+  mix-blend-mode: multiply;
+  filter: drop-shadow(0 8px 24px rgba(31, 24, 19, 0.08));
+  transition: transform 0.6s ease;
+}
+.founder-visual:hover .founder-logo {
+  transform: scale(1.03);
 }
 .founder-tag {
   position: absolute;
@@ -514,10 +522,20 @@ img { max-width: 100%; display: block; }
   left: 24px;
   font-family: 'Pretendard', sans-serif;
   font-size: 11px;
-  font-weight: 500;
-  color: var(--gold-soft);
+  font-weight: 600;
+  color: var(--gold);
   letter-spacing: 0.25em;
-  z-index: 2;
+  z-index: 4;
+}
+.founder-tag::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 1px;
+  background: var(--gold);
+  vertical-align: middle;
+  margin-right: 10px;
+  transform: translateY(-2px);
 }
 
 .founder-body .section-label { margin-bottom: 12px; }
@@ -1186,7 +1204,7 @@ img { max-width: 100%; display: block; }
 <!-- FOUNDER -->
 <section class="section founder-section" id="founder">
   <div class="founder-visual reveal">
-    <div class="founder-mark">K. N.</div>
+    <img src="logo.png" alt="The Naeun Group" class="founder-logo">
     <div class="founder-tag">FOUNDER · 권나은</div>
   </div>
   <div class="founder-body">
